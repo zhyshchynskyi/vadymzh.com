@@ -5,14 +5,11 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    // You can overwrite values here that are used for the SEO component
-    // You can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
     siteTitle: `Vadym Zh`,
-    siteTitleAlt: `Vadym Zh: SaaS, marketing, sales, and software development`,
-    siteHeadline: `SaaS, marketing, sales, and software development`,
+    siteTitleAlt: `Vadym Zh: SaaS, marketing, travel, and software development`,
+    siteHeadline: `SaaS, marketing, travel, and software development`,
     siteUrl: `https://vadymzh.com`,
-    siteDescription: `SaaS, marketing, sales, and software development`,
+    siteDescription: `SaaS, marketing, travel, and software development`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
     author: `@vadymzhy`,
@@ -35,9 +32,12 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
       options: {
         navigation: [
+          {
+            title: `Home`,
+            slug: `/`,
+          },
           {
             title: `Blog`,
             slug: `/blog`,
@@ -46,6 +46,10 @@ const config: GatsbyConfig = {
             title: `About`,
             slug: `/about`,
           },
+          {
+            title: `Resources`,
+            slug: `/resources`,
+          },
         ],
         externalLinks: [
           {
@@ -53,8 +57,8 @@ const config: GatsbyConfig = {
             url: `https://twitter.com/vadymzhy`,
           },
           {
-            name: `Homepage`,
-            url: `/`,
+            name: `GitHub`,
+            url: `https://github.com/zhyshchynskyi`,
           },
         ],
       },
@@ -73,9 +77,6 @@ const config: GatsbyConfig = {
         description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
         start_url: `/`,
         background_color: `#fff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#6B46C1`,
         display: `standalone`,
         icons: [
           {
@@ -145,7 +146,6 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    // You can remove this plugin if you don't need it
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-statoscope`,
       options: {
